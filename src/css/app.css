@@ -6,7 +6,3 @@ html {
   -webkit-backface-visibility: visible;
   backface-visibility: visible;
 }
-
-.double-font {
-    font-size: 2em;
-}

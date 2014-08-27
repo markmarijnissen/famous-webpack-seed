@@ -34,7 +34,7 @@
     "expose-loader": "^0.5.3",
     "famous": "^0.2.2",
     "famous-polyfills": "^0.2.2",
-    "file-loader": "^0.6.1",
+    "file-loader": "git://github.com/talves/file-loader.git",
     "glob": "^4.0.5",
     "html-loader": "^0.2.2",
     "jade": "1.2.0",

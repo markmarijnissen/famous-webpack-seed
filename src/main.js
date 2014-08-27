@@ -4,8 +4,6 @@ define(function(require, exports, module) {
 
     // import dependencies
     var Engine = require('famous/core/Engine');
-    var RenderNode = require('famous/core/RenderNode');
-    var Surface = require('famous/core/Surface');
     var Modifier = require('famous/core/Modifier');
     var Transform = require('famous/core/Transform');
     var ImageSurface = require('famous/surfaces/ImageSurface');
@@ -20,20 +18,6 @@ define(function(require, exports, module) {
         classes: ['double-sided']
     });
 
-    var desc = new Surface({
-        align: [0.5, 1],
-        size: [200, 20],
-        content: 'Boilerplate',
-        classes: ['double-sided', 'double-font'],
-        properties: {
-            textAlign: 'center'
-        }
-    });
-    desc.mod = new Modifier({
-        align: [0.5, 0.5],
-        transform: Transform.translate(0,110,50)
-    });
-
     var initialTime = Date.now();
     var centerSpinModifier = new Modifier({
         origin: [0.5, 0.5],
@@ -42,11 +26,7 @@ define(function(require, exports, module) {
         }
     });
 
-    this.surfaceNode = new RenderNode();
-    this.surfaceNode.add(logo);
-    this.surfaceNode.add(desc.mod).add(desc);
-
-    mainContext.add(centerSpinModifier).add(this.surfaceNode);
+    mainContext.add(centerSpinModifier).add(logo);
 
     /**
      * Support for multiple configurations using the global ENV variable.

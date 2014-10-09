@@ -1,6 +1,6 @@
 {
   "name": "famous-webpack-seed",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "A seed project to get started with Webpack and Famo.us",
   "main": "webpack.config.js",
   "scripts": {
@@ -32,8 +32,8 @@
     "coffee-script": "^1.7.1",
     "css-loader": "^0.7.0",
     "expose-loader": "^0.5.3",
-    "famous": "^0.2.2",
-    "famous-polyfills": "^0.2.2",
+    "famous": "^0.3.0",
+    "famous-polyfills": "^0.3.0",
     "file-loader": "git://github.com/talves/file-loader.git",
     "glob": "^4.0.5",
     "html-loader": "^0.2.2",

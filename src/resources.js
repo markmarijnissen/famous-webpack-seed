@@ -1,4 +1,4 @@
-require('famous/core/famous.css');
+require('famous/src/core/famous.css');
 require('./css/app.css');
 require('famous-polyfills');
 

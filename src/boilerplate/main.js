@@ -3,12 +3,12 @@ define(function(require, exports, module) {
     require('./resources');
 
     // import dependencies
-    var Engine = require('famous/core/Engine');
-    var RenderNode = require('famous/core/RenderNode');
-    var Surface = require('famous/core/Surface');
-    var Modifier = require('famous/core/Modifier');
-    var Transform = require('famous/core/Transform');
-    var ImageSurface = require('famous/surfaces/ImageSurface');
+    var Engine = require('famous/src/core/Engine');
+    var RenderNode = require('famous/src/core/RenderNode');
+    var Surface = require('famous/src/core/Surface');
+    var Modifier = require('famous/src/core/Modifier');
+    var Transform = require('famous/src/core/Transform');
+    var ImageSurface = require('famous/src/surfaces/ImageSurface');
 
     // create the main context
     var mainContext = Engine.createContext();
@@ -37,6 +37,7 @@ define(function(require, exports, module) {
     var initialTime = Date.now();
     var centerSpinModifier = new Modifier({
         origin: [0.5, 0.5],
+        align: [0.5, 0.5],
         transform : function(){
             return Transform.rotateY(0.002 * (Date.now() - initialTime));
         }

@@ -1,6 +1,11 @@
 # Changelog
 
-### 0.7.0 (10/09/2014)
+### 0.8.0 (12/10/2014)
+
+* set famo.us alias to avoid referencing the `src` folder.
+* removed the entry-point example at `src` level.
+
+### 0.7.0 (09/10/2014)
 
 * update to latest `Famous/famous` version release `0.3.0`
 * allows for the 0.3.0 release changes of `src` path

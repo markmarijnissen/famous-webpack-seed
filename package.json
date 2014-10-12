@@ -1,6 +1,6 @@
 {
   "name": "famous-webpack-seed",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "A seed project to get started with Webpack and Famo.us",
   "main": "webpack.config.js",
   "scripts": {

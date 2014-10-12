@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var ReloadPlugin = require('webpack-reload-plugin');
 var path = require('path');
-var isRunningDevServer = isDevServer();
+var isDevServer = process.argv.join('').indexOf('webpack-dev-server') > -1;
 
 // Support for extra commandline arguments
 var argv = require('optimist')
@@ -17,12 +17,17 @@ var config = {
   output:{
     path: path.join(__dirname, "dist"),
     filename:"[name]/js/bundle.js",
-    publicPath: isRunningDevServer ? '/': ''
+    publicPath: isDevServer ? '/': ''
+  },
+  resolve: {
+    alias: {
+      'famous':'famous/src'
+    }
   },
   devServer: {
     publicPath: '/'
   },
-  reload: isDevServer()? 'localhost': null,
+  reload: isDevServer? 'localhost': null,
   module:{
     loaders:[
       { test: /\.json$/,            loader: "json-loader" },
@@ -34,13 +39,12 @@ var config = {
       { test: /\.eot$/,             loader: "file-loader?name=[path][name].[ext]" },
       { test: /\.ttf$/,             loader: "file-loader?name=[path][name].[ext]" },
       { test: /\.svg$/,             loader: "file-loader?name=[path][name].[ext]" },
-      { test: /index\.html$/,       loader: "file-loader?name=[path][name].[ext]" },
-      { test: /const(ants)?\.js$/,  loader: "expose?CONST" }
+      { test: /index\.html$/,       loader: "file-loader?name=[path][name].[ext]" }
     ]
   },
   plugins:[
     new webpack.DefinePlugin({
-      VERSION: JSON.stringify(require('./package.json').version),
+      VERSION: JSON.stringify(require(path.resolve(__dirname,'package.json')).version),
       ENV: JSON.stringify(argv.env)
     }),
     new ReloadPlugin()
@@ -71,12 +75,10 @@ function getEntries(){
     if (name === '') name = 'assets'; // [optional] setup for a root entry. point to assets/js/bundle.js in index.html
     entries[name] = entry;
   });
+  console.log(entries);
   return entries;
 }
 
-function isDevServer(){
-  return process.argv.join('').indexOf('webpack-dev-server') > -1;
-}
 
 module.exports = config;
 

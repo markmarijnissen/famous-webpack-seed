@@ -83,7 +83,18 @@ For more information and troubleshooting see the [webpack-cordova-plugin](https:
 
 ---
 
-#### Advanced usage: extend this config
+### Advanced uses
+
+#### Single entry-point
+
+Don't like multiple entry points? The seed also supports having a single entry point.
+
+1. Create a `main.js` in the `src` folder
+2. Point to `assets/js/bundle.js` in your `index.html`
+
+That was easy!
+
+#### Extend this config
 
 1. Install `famous-webpack-seed` as npm module.
   ```bash
@@ -97,6 +108,7 @@ For more information and troubleshooting see the [webpack-cordova-plugin](https:
    // etc
    ```
 
+At this moment, you need to manually install `npm` dependencies.
 
 ## Contributors
 

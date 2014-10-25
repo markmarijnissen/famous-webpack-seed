@@ -104,7 +104,8 @@ That was easy!
 2. Now you can extend your `webpack.config.js` as follows:
    ```js
    var config = require('famous-webpack-seed');
-   config.entry = './src/app.js'
+   config.context = path.join(__dirname, "src");
+   config.output.path = path.join(__dirname, "dist");
    // etc
    ```
 

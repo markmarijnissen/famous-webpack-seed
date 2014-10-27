@@ -9,9 +9,6 @@ var argv = require('optimist')
             .alias('e','env').default('e','dev')
             //--minify:  minifies output
             .alias('m','minify')
-            //--mangle:  obfuscates minified output
-            .boolean('mangle')
-            .alias('z','mangle')
             .argv;
 
 var config = {
@@ -55,7 +52,7 @@ var config = {
 };
 
 if(argv.minify){
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({mangle: argv.mangle}));
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({mangle:false}));
 }
 
 /**

@@ -101,11 +101,13 @@ That was easy!
   npm install famous-webpack-seed --save-dev
   ```
 
-2. Now you can extend your `webpack.config.js` as follows:
+2. A sample `webpack.config.js` to get started:
    ```js
    var config = require('famous-webpack-seed');
-   config.entry = './src/app.js'
-   // etc
+   config.context     = __dirname + "/src";
+   config.output.path = __dirname + "/dist";
+   // modify any other properties of config here...
+   module.exports = config;
    ```
 
 At this moment, you need to manually install `npm` dependencies.

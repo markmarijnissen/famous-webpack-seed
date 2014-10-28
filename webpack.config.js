@@ -48,11 +48,12 @@ var config = {
       ENV: JSON.stringify(argv.env)
     }),
     new ReloadPlugin()
-  ]
+  ],
+  obfuscate: false
 };
 
 if(argv.minify){
-  config.plugins.push(new webpack.optimize.UglifyJsPlugin({mangle:false}));
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin({mangle: config.obfuscate}));
 }
 
 /**
@@ -78,7 +79,6 @@ function getEntries(){
   console.log(entries);
   return entries;
 }
-
 
 module.exports = config;
 

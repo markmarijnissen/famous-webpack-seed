@@ -1,5 +1,14 @@
 # Changelog
 
+### 0.9.0 (31/10/2014)
+
+* Use `process.cwd()` as root directory for compatability with Nodejs apps
+* Changed output path to be `[bundle-name]/bundle.js` 
+* Updated `webpack-cordova-plugin` and `webpack-reload-plugin`.
+* Updated `webpack` and related dependencies.
+* Removed `webpack.cordova.js` - the few lines of code can easily be in `webpack.config.js`.
+* Added the `--cordova` commandline option.
+
 ### 0.8.0 (12/10/2014)
 
 * set famo.us alias to avoid referencing the `src` folder.

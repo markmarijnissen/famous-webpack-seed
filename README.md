@@ -52,17 +52,17 @@ webpack --minify --env=production
 
 ```bash
 npm install -g cordova
-webpack --config webpack.cordova.js  # automatically creates a Cordova config.xml
+webpack --cordova # automatically creates a Cordova config.xml
 # change app ID in config.xml (optional)
 cordova platform add ios # or android
 ```
 
-The `webpack.cordova.js` configuration uses the [webpack-cordova-plugin](https://github.com/markmarijnissen/webpack-cordova-plugin) to add Cordova to your project.
+[webpack-cordova-plugin](https://github.com/markmarijnissen/webpack-cordova-plugin) is used to add Cordova to your project.
 
 ####Development:
 
 ```bash
-webpack-dev-server --config webpack.cordova.js --reload=192.168.0.1 --ios # or --android
+webpack-dev-server --cordova --reload=192.168.0.1 --ios # or --android
 
 # in seperate terminal-tab, launch cordova
 cordova run ios # or android
@@ -70,11 +70,11 @@ cordova run ios # or android
 
 * The `--reload` flag enables live reloading, and points Cordova to your **webpack-dev-server**.
 
-* The `--ios` or `--android` flags ensure the correct Cordova and plugin javascript is loaded. The javascript is different for each platform and located at `platform/ios/www ` or `platform/android/assets/www `.
+* The `--ios` or `--android` flags ensure the correct Cordova and plugin javascript is loaded. The javascript is different for each platform and located at `platform/ios/www` or `platform/android/assets/www`.
 
 ####Production:
 ```bash
-webpack --config webpack.cordova.js
+webpack --cordova --minify
 cordova run ios # or android
 ```
 
@@ -87,10 +87,7 @@ For more information and troubleshooting see the [webpack-cordova-plugin](https:
 
 #### Single entry-point
 
-Don't like multiple entry points? The seed also supports having a single entry point.
-
-1. Create a `main.js` in the `src` folder
-2. Point to `assets/js/bundle.js` in your `index.html`
+Don't like multiple entry points? Just modify the `config.entry` to point to your single entry point.
 
 That was easy!
 
@@ -99,6 +96,32 @@ That was easy!
 1. Install `famous-webpack-seed` as npm module.
   ```bash
   npm install famous-webpack-seed --save-dev
+  ```
+
+2. Copy these `devDependencies` to your `package.json` and run `npm install`
+  ```json
+  {
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.7.1",
+    "css-loader": "^0.7.0",
+    "expose-loader": "^0.5.3",
+    "file-loader": "git://github.com/talves/file-loader.git",
+    "glob": "^4.0.5",
+    "html-loader": "^0.2.2",
+    "jade": "1.2.0",
+    "jade-loader": "^0.6.1",
+    "json-loader": "^0.5.1",
+    "less": "^1.7.4",
+    "less-loader": "^0.7.5",
+    "optimist": "^0.6.1",
+    "script-loader": "^0.6.0",
+    "style-loader": "^0.6.4",
+    "url-loader": "^0.5.5",
+    "webpack": "^1.4.10",
+    "webpack-cordova-plugin": "^0.1.3",
+    "webpack-dev-server": "^1.6.5",
+    "webpack-reload-plugin": "^0.1.1"
+  }
   ```
 
 2. A sample `webpack.config.js` to get started:
@@ -110,7 +133,7 @@ That was easy!
    module.exports = config;
    ```
 
-At this moment, you need to manually install `npm` dependencies.
+
 
 ## Contributors
 

@@ -1,6 +1,6 @@
 {
   "name": "famous-webpack-seed",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "A seed project to get started with Webpack and Famo.us",
   "main": "webpack.config.js",
   "scripts": {
@@ -51,7 +51,7 @@
     "style-loader": "^0.6.4",
     "url-loader": "^0.5.5",
     "webpack": "^1.4.10",
-    "webpack-cordova-plugin": "^0.1.4",
+    "webpack-cordova-plugin": "^0.1.5",
     "webpack-dev-server": "^1.6.5",
     "webpack-reload-plugin": "^0.1.1"
   },

@@ -105,7 +105,6 @@ function findEntries(){
     entries[name] = entry;
     
   });
-  console.log(entries);
   return entries;
 }
 

@@ -29,8 +29,6 @@ var config = {
   output:{
     path: path.resolve(cwd, "dist"),
     filename:"[name]/bundle.js",
-
-    // remove this line if you have /src/main.js instead of /src/xxx/main.js
     publicPath: isDevServer ? '../': ''
   },
   resolve: {
@@ -98,10 +96,8 @@ function findEntries(){
     // entry = ./boilerplate/main
     var entry = "./" + file.substr(5+cwd.length,file.length-8-cwd.length);
     // name = boilerplate    
-    var name = entry.substr(2,entry.length-7);
+    var name = entry.substr(2,entry.length-7) || './';
     // { 'boilerplate': './boilerplate/main' }
-    // Change name to './' so it will build into current dir
-    if(name === '') name = './';
     entries[name] = entry;
     
   });

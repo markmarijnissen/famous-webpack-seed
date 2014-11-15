@@ -29,7 +29,9 @@ var config = {
   output:{
     path: path.resolve(cwd, "dist"),
     filename:"[name]/bundle.js",
-    publicPath: isDevServer ? '../': ''
+
+    // remove this line if you have /src/main.js instead of /src/xxx/main.js
+    publicPath: isDevServer ? '../': ''  
   },
   resolve: {
     alias: {
@@ -94,13 +96,16 @@ function findEntries(){
   var entries = {};
   mains.forEach(function(file){
     // entry = ./boilerplate/main
-    var entry = "./" + file.substr(5+cwd.length,file.length-8-cwd.length); 
+    var entry = "./" + file.substr(5+cwd.length,file.length-8-cwd.length);
     // name = boilerplate    
-    var name = entry.substr(2,entry.length-7); 
+    var name = entry.substr(2,entry.length-7);
     // { 'boilerplate': './boilerplate/main' }
+    // Change name to './' so it will build into current dir
+    if(name === '') name = './';
     entries[name] = entry;
     
   });
+  console.log(entries);
   return entries;
 }
 

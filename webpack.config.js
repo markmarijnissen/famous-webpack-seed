@@ -31,7 +31,7 @@ var config = {
     filename:"[name]/bundle.js",
 
     // remove this line if you have /src/main.js instead of /src/xxx/main.js
-    publicPath: isDevServer ? '../': ''  
+    publicPath: isDevServer ? '../': ''
   },
   resolve: {
     alias: {

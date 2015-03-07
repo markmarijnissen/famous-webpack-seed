@@ -56,7 +56,7 @@
     "webpack-reload-plugin": "^0.1.1"
   },
   "dependencies": {
-    "famous": "^0.3.0",
+    "famous": "^0.3.5",
     "famous-polyfills": "^0.3.0"
   }
 }

@@ -31,11 +31,6 @@ var config = {
     filename:"[name]/bundle.js",
     publicPath: isDevServer ? '../': ''
   },
-  resolve: {
-    alias: {
-      'famous':'famous/src'
-    }
-  },
   devServer: {
     publicPath: '/'
   },
@@ -85,7 +80,7 @@ if(argv.cordova){
  *
  * Result is for example: { 'boilerplate':'./boilerplate/main' }
  *
- * If you want, you can delete this function and just manually specify 
+ * If you want, you can delete this function and just manually specify
  * your entry points in `config.entry`.
  */
 function findEntries(){
@@ -95,15 +90,13 @@ function findEntries(){
   mains.forEach(function(file){
     // entry = ./boilerplate/main
     var entry = "./" + file.substr(5+cwd.length,file.length-8-cwd.length);
-    // name = boilerplate    
+    // name = boilerplate
     var name = entry.substr(2,entry.length-7) || './';
     // { 'boilerplate': './boilerplate/main' }
     entries[name] = entry;
-    
+
   });
   return entries;
 }
 
 module.exports = config;
-
-
